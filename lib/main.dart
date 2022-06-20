@@ -5,9 +5,11 @@ import 'package:get_storage/get_storage.dart';
 import 'package:gym_app/Screens/SplashScreen.dart';
 import 'package:gym_app/Theme/Theme_Services.dart';
 import 'package:gym_app/Theme/Themes.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-import 'Screens/Auth/LoginRegister.dart';
 void main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await GetStorage.init();
   runApp(MyApp());
 }

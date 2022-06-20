@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -36,9 +37,7 @@ class Account extends StatelessWidget {
                         Stack(
                           children: [
                             CircleAvatar(
-                              backgroundImage: AssetImage(
-                                'assets/Images/login.PNG',
-                              ),
+                              backgroundImage: NetworkImage(getx.user.imgurl,),
                               radius: 35.sp,
                             ),
                             Positioned(
@@ -57,7 +56,7 @@ class Account extends StatelessWidget {
                           ],
                         ),
                         Text(
-                          'Mohammed Shweikh',
+                          getx.user.name,
                           style: Theme.of(context)
                               .textTheme
                               .bodyText1
@@ -83,7 +82,7 @@ class Account extends StatelessWidget {
                             color: Colors.tealAccent,
                             borderRadius: BorderRadius.circular(10)),
                         child: Padding(
-                          padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                          padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                           child: Column(
                             children: [
                               Row(

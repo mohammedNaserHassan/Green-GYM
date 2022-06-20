@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:gym_app/Screens/Auth/RegisterScreen.dart';
+import 'package:gym_app/Authintication/UI/RegisterScreen.dart';
 import 'package:gym_app/State%20Managment/GymController.dart';
 import 'package:gym_app/Screens/Home.dart';
 
@@ -42,20 +42,26 @@ class LoginScreen extends StatelessWidget {
                   height: 300.h,
                   margin: EdgeInsets.symmetric(vertical: 10.h,horizontal: 30.w),
               decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).canvasColor,
                 borderRadius: BorderRadius.circular(15)
               ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 10.h,),
-                      Text('Login To GYM App',style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 23),),
-                      buildTextField(title: 'Email',prefex: Icons.email,controller: getx.email),
-                      buildTextField(title: 'Password',prefex: Icons.lock,controller: getx.password,state: true),
-                      SizedBox(height: 20.h,),
-                    buildButton('Login',(){
-                      Get.off(()=>Home());
-                    },Colors.teal)
-                    ],
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+                      child: Column(
+                        children: [
+                          SizedBox(height: 10.h,),
+                          Text('Login To GYM App',style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 23),),
+                          buildTextField(title: 'Email',prefex: Icons.email,controller: getx.email),
+                          buildTextField(title: 'Password',prefex: Icons.lock,controller: getx.password,state: true),
+                          SizedBox(height: 20.h,),
+                       getx.loginLoad?CircularProgressIndicator(color: Colors.teal,): buildButton('Login',(){
+                         getx.setLoading();
+                          getx.login();
+                        },Colors.teal),
+                        ],
+                      ),
+                    ),
                   )
                 ),
               ),

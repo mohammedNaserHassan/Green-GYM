@@ -20,14 +20,16 @@ class Home extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 children: <Widget>[
                   UserAccountsDrawerHeader(
-                    accountName: Text('Mohammed Shweikh',style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 22.sp),),
-                    currentAccountPicture:    CircleAvatar(backgroundImage: AssetImage('assets/Images/login.PNG',),radius: 35.sp,), accountEmail: Text('engmohammedalshweikh@gmail.com',style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 10),),
+                    accountName: Text(getx.user.name,style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 22.sp),),
+                    currentAccountPicture:    CircleAvatar(backgroundImage: NetworkImage(getx.user.imgurl),radius: 35.sp,), accountEmail: Text(getx.user.email,style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 10),),
                   ),
                   buildListTile(getx,'Home Screen',0),
                   buildListTile(getx,'My Trainings',1),
                   buildListTile(getx,'My Worksouts',2),
                   buildListTile(getx,'My Profile',3),
-                  ListTile(title: Text('Logout'),trailing: Icon(Icons.logout),)
+                  ListTile(title: Text('Logout'),trailing: Icon(Icons.logout),onTap: (){
+                    getx.logOut();
+                  },)
                 ],
               ),
             ),
@@ -48,7 +50,7 @@ class Home extends StatelessWidget {
                     top: 70.h,
                     left: 20.w,
                     child: Text(
-                      'Hi Mohammed Shweikh',
+                      'Hi'+'\t'+getx.user.name,
                        style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 25.sp,fontWeight: FontWeight.normal,fontFamily: GoogleFonts.aladin().fontFamily),
                     )),
                 Positioned(

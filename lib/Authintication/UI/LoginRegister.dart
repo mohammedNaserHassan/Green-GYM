@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:gym_app/Screens/Auth/LoginScreen.dart';
-import 'package:gym_app/Screens/Auth/RegisterScreen.dart';
+import 'package:gym_app/Authintication/UI/LoginScreen.dart';
+import 'package:gym_app/Authintication/UI/RegisterScreen.dart';
+
+
 
 import '../../Widgets/buildButton.dart';
+
 class LoginRegister extends StatelessWidget {
   LoginRegister();
 

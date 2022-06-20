@@ -21,7 +21,7 @@ class buildTextField extends StatelessWidget {
           decoration: InputDecoration(
               hintText: title,
               hintStyle: Theme.of(context).textTheme.bodyText2,
-              fillColor: Color(0xffFDF2F8),
+              fillColor: Colors.white,
               contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 10.w),
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),

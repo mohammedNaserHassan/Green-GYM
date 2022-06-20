@@ -10,6 +10,7 @@ dependencies:
   get_storage: ^2.0.3
   flutter_screenutil: ^5.5.3+2
   flutter_carousel_slider: ^1.0.9
+  sliding_clipped_nav_bar: ^3.1.0+2
   http: ^0.13.4
   google_fonts: ^3.0.1
   fluttertoast: ^8.0.9

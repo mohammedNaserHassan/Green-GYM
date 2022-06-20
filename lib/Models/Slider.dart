@@ -15,13 +15,13 @@ class Workout{
   Workout(this.rate,this.time,this.kcl,this.title,this.image);
 }
 List workouts =[
+  Workout('1.5','42 min','330 Kcal','Body Building', 'assets/Images/seven.PNG'),
+  Workout('4.5','45 min','350 Kcal','Body Building','assets/Images/two.PNG'),
 Workout('4.8','12 min','120 Kcal','Push ypur Body','assets/Images/one.PNG'),
-Workout('4.5','45 min','350 Kcal','Body Building','assets/Images/two.PNG'),
 Workout('1.5','42 min','330 Kcal','Body Building','assets/Images/three.PNG'),
 Workout('1.5','42 min','330 Kcal','Body Building', 'assets/Images/four.PNG'),
 Workout('1.5','42 min','330 Kcal','Body Building', 'assets/Images/five.PNG'),
 Workout('1.5','42 min','330 Kcal','Body Building', 'assets/Images/six.PNG'),
-Workout('1.5','42 min','330 Kcal','Body Building', 'assets/Images/seven.PNG'),
 ];
 
 

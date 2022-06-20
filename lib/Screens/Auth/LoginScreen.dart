@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:gym_app/Screens/Auth/RegisterScreen.dart';
 import 'package:gym_app/State%20Managment/GymController.dart';
+import 'package:gym_app/Screens/Home.dart';
 
 import '../../Widgets/buildButton.dart';
 import '../../Widgets/buildTextField.dart';
-import '../HomeScreen.dart';
+import '../../Tabs/HomeScreen.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -52,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                       buildTextField(title: 'Password',prefex: Icons.lock,controller: getx.password,state: true),
                       SizedBox(height: 20.h,),
                     buildButton('Login',(){
-                      Get.off(()=>HomeScreen());
+                      Get.off(()=>Home());
                     },Colors.teal)
                     ],
                   )

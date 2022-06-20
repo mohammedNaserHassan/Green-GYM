@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:gym_app/Screens/Auth/LoginScreen.dart';
-import 'package:gym_app/Screens/HomeScreen.dart';
+import 'package:gym_app/Tabs/HomeScreen.dart';
 import 'package:gym_app/State%20Managment/GymController.dart';
 
 import '../../Widgets/buildButton.dart';

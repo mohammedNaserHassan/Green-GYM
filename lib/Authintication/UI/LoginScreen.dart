@@ -55,8 +55,7 @@ class LoginScreen extends StatelessWidget {
                           buildTextField(title: 'Email',prefex: Icons.email,controller: getx.email),
                           buildTextField(title: 'Password',prefex: Icons.lock,controller: getx.password,state: true),
                           SizedBox(height: 20.h,),
-                       getx.loginLoad?CircularProgressIndicator(color: Colors.teal,): buildButton('Login',(){
-                         getx.setLoading();
+                       GymController.loginLoad?CircularProgressIndicator(color: Colors.teal,): buildButton('Login',(){
                           getx.login();
                         },Colors.teal),
                         ],

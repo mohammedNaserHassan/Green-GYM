@@ -28,12 +28,15 @@ class GymController extends GetxController{
     getUserFromFirestore();
   }
   String message = DateTime.now().hour < 12 ? "Good morning" : "Good afternoon";
-   bool isLoading = false;
-   bool loginLoad=false;
+  static  bool isLoading = false;
+   static bool loginLoad=false;
   late PageController pageController;
   List<Widget> items=[HomeScreen(),Worksout(),Category(),Account()];
   int selectedIndex = 0;
-
+registerLoadin(){
+  isLoading=false;
+  update();
+}
   onButtonPressed(int index) {
       selectedIndex = index;
     pageController.animateToPage(selectedIndex,
@@ -76,33 +79,28 @@ int count=2;
      update();
    }
    ////////////////////////////////////////////////////////////////////////////////////////////////
-setLoading(){
-     isLoading=!isLoading;
-     update();
-}
+
 
    ////////////////////////////////////////////////////////////////////////////////////////////////
 
    /////Sign up//////////////////////////////
    register() async {
-   if(name.text.length!=0&&email.text.length!=0&&password.text.length!=0&&conformPassword.text.length!=0){
+   if(name.text.length!=0&&email.text.length!=0&&password.text.length!=0&&conformPassword.text.length!=0&&file!=null){
      if(password.text==conformPassword.text){
      try {
        UserCredential? userCredential = await Auth_helper.auth_helper.signup(email.text, password.text);
-       setLoading();
        String imageUrl = await fireStorageHelper.helper.uploadImage(file);
        RegisterRequest registerRequest = RegisterRequest(
-         imgurl: imageUrl??'',
+         imgurl: imageUrl,
          id: userCredential?.user?.uid,
          email: email.text,
          name: name.text,);
        await fireStore_Helper.helper.addUserToFireBase(registerRequest);
        await Auth_helper.auth_helper.signOut();
-       Get.off(LoginScreen());
+       clearController();
      } on Exception catch (e) {
        print(e);
      }
-     clearController();
      }
      else{
        Fluttertoast.showToast(msg: 'Password not match');
@@ -120,11 +118,9 @@ setLoading(){
   login() async {
      if(email.text.length!=0 && password.text.length!=0){
     UserCredential? userCredential = await Auth_helper.auth_helper.signin(email.text, password.text);
-    loginLoad=true;
     getUserFromFirestore();
 userId = Auth_helper.auth_helper.getUserId();
-setLoading();
-    clearController();
+clearController();
    }
     else{
     Fluttertoast.showToast(msg: "Please fill all the fields");
@@ -139,20 +135,25 @@ setLoading();
     update();
   }
   ///////////////
+
+
 checkEnter(){
-    if(userId==null){
-      Get.off(LoginRegister());
-    }else{
-      Get.off(Home());
-    }
+  bool isLoggin = Auth_helper.auth_helper.checkUser();
+  if (isLoggin) {
+    this.userId = Auth_helper.auth_helper.getUserId();
+    getUserFromFirestore();
+    Get.off(Home());
+  }
+  else {
+   Get.off(LoginRegister());
+  }
 }
   //////////////////Sign out////////////////////////////////////
   logOut() async {
     await Auth_helper.auth_helper.signOut();
-    user=RegisterRequest(name: '',email: '',imgurl: '',id: '');
     userId=null;
     Get.off(LoginRegister());
-    setLoading();
+    isLoading=false;
     loginLoad=false;
     update();
   }
@@ -163,6 +164,7 @@ checkEnter(){
     password.clear();
     conformPassword.clear();
     name.clear();
+    file=null;
   }
 
 }

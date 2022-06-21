@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -79,7 +78,7 @@ class Account extends StatelessWidget {
                     child: Container(
                         height: 80.h,
                         decoration: BoxDecoration(
-                            color: Colors.tealAccent,
+                            color: Theme.of(context).highlightColor,
                             borderRadius: BorderRadius.circular(10)),
                         child: Padding(
                           padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),

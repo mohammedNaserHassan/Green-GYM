@@ -13,24 +13,22 @@ class buildTextField extends StatelessWidget {
       width: 310.w,
       height: 50.h,
       margin: EdgeInsets.symmetric(vertical: 15.h,horizontal: 30.w),
-      child: Expanded(
-        child: TextField(
-          obscureText: state,
-          style: TextStyle(color: Colors.black),
-          controller: controller,
-          decoration: InputDecoration(
-              hintText: title,
-              hintStyle: Theme.of(context).textTheme.bodyText2,
-              fillColor: Theme.of(context).primaryColor,
-              contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 10.w),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide.none
-              ),
-              filled: true,
-              border: InputBorder.none,
-              prefixIcon: Icon(prefex,color: Colors.black)
-          ),
+      child: TextField(
+        obscureText: state,
+        style: TextStyle(color: Colors.black),
+        controller: controller,
+        decoration: InputDecoration(
+            hintText: title,
+            hintStyle: Theme.of(context).textTheme.bodyText2,
+            fillColor: Theme.of(context).primaryColor,
+            contentPadding: EdgeInsets.symmetric(vertical: 10.h,horizontal: 10.w),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+                borderSide: BorderSide.none
+            ),
+            filled: true,
+            border: InputBorder.none,
+            prefixIcon: Icon(prefex,color: Colors.black)
         ),
       ),
     );

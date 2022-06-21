@@ -2,12 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:gym_app/Authintication/Helper/fireStore_Helper.dart';
+import 'package:gym_app/State%20Managment/GymController.dart';
 
 import '../../Screens/Home.dart';
+import '../UI/LoginScreen.dart';
 
 class Auth_helper {
   Auth_helper._();
-  bool loading=true;
 
   static Auth_helper auth_helper = Auth_helper._();
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
@@ -16,8 +17,11 @@ class Auth_helper {
     try {
       UserCredential userCredential = await firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
+      GymController.isLoading = true;
+      Get.off(LoginScreen());
       return userCredential;
     } on FirebaseAuthException catch (e) {
+      GymController.isLoading = false;
       if (e.code == 'weak-password') {
         Fluttertoast.showToast(msg: 'Password is weak');
       } else if (e.code == 'email-already-in-use') {
@@ -30,10 +34,10 @@ class Auth_helper {
     try {
       UserCredential userCredential = await firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
+      GymController.loginLoad=true;
       Get.off(()=>Home());
 
     } on FirebaseAuthException catch (e) {
-      loading=false;
       if (e.code == 'user-not-found') {
         Fluttertoast.showToast(msg: 'User not found');
       } else if (e.code == 'wrong-password') {

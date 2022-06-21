@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:gym_app/Authintication/UI/LoginScreen.dart';
 import 'package:gym_app/Authintication/UI/RegisterScreen.dart';
+import 'package:gym_app/State%20Managment/GymController.dart';
 
 
 
@@ -29,23 +30,27 @@ class LoginRegister extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 color: Theme.of(context).primaryColor,
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(height: 30.h,),
-                  Text('Welcome To',style: Theme.of(context).textTheme.bodyText1,),
-                  Text(' Fitness Mobile App',style: Theme.of(context).textTheme.bodyText1,),
-                  SizedBox(height: 20.h,),
-                  Text('Deliver your order around the world',style: Theme.of(context).textTheme.bodyText2,),
-                  Text('without destination',style: Theme.of(context).textTheme.bodyText2,),
-                  SizedBox(height: 10.h,),
-                  buildButton('Login',(){
-                    Get.off(()=>LoginScreen());
-                  },Colors.teal),
-                  buildButton('Register',(){
-                    Get.off(()=>RegisterScreen());
-                  },Colors.orange),
-                ],
+              child: GetBuilder<GymController>(
+    init: GymController(),
+                builder: (getx)=>Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 30.h,),
+                      Text('Welcome To',style: Theme.of(context).textTheme.bodyText1,),
+                      Text(' Fitness Mobile App',style: Theme.of(context).textTheme.bodyText1,),
+                      SizedBox(height: 20.h,),
+                      Text('Deliver your order around the world',style: Theme.of(context).textTheme.bodyText2,),
+                      Text('without destination',style: Theme.of(context).textTheme.bodyText2,),
+                      SizedBox(height: 10.h,),
+                      buildButton('Login',(){
+                        Get.off(()=>LoginScreen());
+                      },Colors.teal),
+                      buildButton('Register',(){
+                        getx.registerLoadin();
+                        Get.off(()=>RegisterScreen());
+                      },Colors.orange),
+                    ],
+                  )
               ),
             ),
           )

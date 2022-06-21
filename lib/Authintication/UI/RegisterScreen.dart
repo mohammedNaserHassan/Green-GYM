@@ -52,7 +52,7 @@ class RegisterScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             SizedBox(height: 10.h,),
-                            Text('Login To GYM App',style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 23),),
+                            Text('Register To GYM App',style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 23),),
                             GestureDetector(
                               onTap: () {
                                 getx.selectFile();
@@ -64,7 +64,7 @@ class RegisterScreen extends StatelessWidget {
                                 child: getx.file == null
                                     ? CircleAvatar(
                                   backgroundColor: Colors.teal,
-                                  child: Icon(Icons.add_a_photo_outlined,size: 35.sp,),
+                                  child: Icon(Icons.add_a_photo_outlined,size: 35.sp,color: Colors.white,),
                                 )
                                     : Image.file(getx.file??File(''),
                                     fit: BoxFit.fill),
@@ -74,7 +74,7 @@ class RegisterScreen extends StatelessWidget {
                             buildTextField(title: 'Email',prefex: Icons.email,controller: getx.email),
                             buildTextField(title: 'Password',prefex: Icons.lock,controller: getx.password,state: true),
                             buildTextField(title: 'Conform Password',prefex: Icons.lock,controller: getx.conformPassword,state: true),
-                           getx.isLoading?CircularProgressIndicator(): buildButton('Register',(){
+                           GymController.isLoading?CircularProgressIndicator(): buildButton('Register',(){
                               getx.register();
                             },Colors.teal),
                           ],

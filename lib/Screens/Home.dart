@@ -181,13 +181,21 @@ class Home extends StatelessWidget {
     );
   }
 
-  ListTile buildListTile(GymController getx,String txt,int index) {
-    return ListTile(
-                  title: Text(txt,style: GoogleFonts.abhayaLibre(),),
-                  onTap: (){
-                    getx.onButtonPressed(index);
-                    Get.back();
-                  },
-                );
+  Widget buildListTile(GymController getx,String txt,int index) {
+    return Column(
+      children: [
+        ListTile(
+                      title: Text(txt,style: GoogleFonts.abhayaLibre(),),
+                      onTap: (){
+                        getx.onButtonPressed(index);
+                        Get.back();
+                      },
+                    ),
+        Divider(
+          color: Colors.grey,
+          thickness: 4.0,
+        )
+      ],
+    );
   }
 }

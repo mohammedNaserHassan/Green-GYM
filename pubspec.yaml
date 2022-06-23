@@ -19,16 +19,40 @@ dependencies:
   cloud_firestore:
   firebase_storage:
   image_picker:
+
 dev_dependencies:
   flutter_test: {sdk: flutter}
-  flutter_lints: ^1.0.0
+  flutter_launcher_icons: "^0.9.2"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/Images/logo.png"
+
 flutter:
   uses-material-design: true
   assets:
     - assets/Images/
+    - assets/Images/Trainings/1.gif
+    - assets/Images/Trainings/10.gif
+    - assets/Images/Trainings/11.gif
+    - assets/Images/Trainings/12.gif
+    - assets/Images/Trainings/13.gif
+    - assets/Images/Trainings/2.gif
+    - assets/Images/Trainings/3.gif
+    - assets/Images/Trainings/4.gif
+    - assets/Images/Trainings/5.gif
+    - assets/Images/Trainings/6.gif
+    - assets/Images/Trainings/7.gif
+    - assets/Images/Trainings/8.gif
+    - assets/Images/Trainings/9.gif
     - assets/Images/five.PNG
     - assets/Images/four.PNG
+    - assets/Images/img.png
+    - assets/Images/lo.PNG
+    - assets/Images/logo.png
     - assets/Images/one.PNG
+    - assets/Images/password.PNG
     - assets/Images/seven.PNG
     - assets/Images/six.PNG
     - assets/Images/three.PNG

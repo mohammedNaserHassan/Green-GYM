@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:gym_app/Authintication/Helper/fireStore_Helper.dart';
 import 'package:gym_app/State%20Managment/GymController.dart';
 
 import '../../Screens/Home.dart';
@@ -48,18 +47,14 @@ class Auth_helper {
 
   resetPassword(String email) async {
     await firebaseAuth.sendPasswordResetEmail(email: email);
-    Fluttertoast.showToast(msg: 'Reset password link has been sent to your email');
+    Fluttertoast.showToast(msg: 'Reset password link has been sent to your email',toastLength: Toast.LENGTH_LONG);
   }
-
 
 
   signOut() async {
     await firebaseAuth.signOut();
   }
 
-  bool checkEmailVerification() {
-    return firebaseAuth.currentUser?.emailVerified ?? false;
-  }
 
   Future<User?> getCurrentUser() async {
     try {
@@ -77,7 +72,7 @@ class Auth_helper {
     try {
       return firebaseAuth.currentUser?.uid;
     } on Exception catch (e) {
-      // TODO
+      print(e);
     }
   }
 

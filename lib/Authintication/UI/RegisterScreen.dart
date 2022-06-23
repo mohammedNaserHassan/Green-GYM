@@ -22,7 +22,7 @@ class RegisterScreen extends StatelessWidget {
           builder:(getx)=> Stack(
             children: [
               Container(
-                height: 320.h,
+                height: 250.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
@@ -32,11 +32,11 @@ class RegisterScreen extends StatelessWidget {
                           blurRadius: 1
                       )
                     ],
-                    image: DecorationImage(image: AssetImage('assets/Images/login.PNG',),fit: BoxFit.fill)
+                    image: DecorationImage(image: AssetImage('assets/Images/lo.PNG',),fit: BoxFit.fitWidth)
                 ),
               ),
               Positioned(
-                bottom: 45.h,
+                bottom: 30.h,
                 left: 10.w,
                 right: 10.w,
                 child: Container(

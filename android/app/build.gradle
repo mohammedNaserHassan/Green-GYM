@@ -29,6 +29,12 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     compileSdkVersion 31
     ndkVersion '21.1.6528147'
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -62,4 +68,6 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.4.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
 }

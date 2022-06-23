@@ -25,7 +25,6 @@ class fireStore_Helper {
     DocumentSnapshot documentSnapshot =
     await firebaseFirestore.collection('Users').doc(userId).get();
     Map<String,dynamic> map ={'x': documentSnapshot.data()};
-////  TODO   ////
     return RegisterRequest.fromMap(map['x']);
   }
 

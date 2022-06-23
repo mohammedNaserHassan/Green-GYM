@@ -14,7 +14,7 @@ class buildButton extends StatelessWidget {
         width: 270.w,
         height: 40.h,
         margin: EdgeInsets.symmetric(vertical: 10.h),
-        child: Center(child: Text(text,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+        child: Center(child: Text(text,style: TextStyle(color:  Theme.of(context).textTheme.bodyText1?.color??Colors.white,fontWeight: FontWeight.bold),)),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             color: color

@@ -15,7 +15,7 @@ class buildTextField extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 15.h,horizontal: 30.w),
       child: TextField(
         obscureText: state,
-        style: TextStyle(color: Colors.black),
+        style: Theme.of(context).textTheme.bodyText2,
         controller: controller,
         decoration: InputDecoration(
             hintText: title,
@@ -28,7 +28,7 @@ class buildTextField extends StatelessWidget {
             ),
             filled: true,
             border: InputBorder.none,
-            prefixIcon: Icon(prefex,color: Colors.black)
+            prefixIcon: Icon(prefex,color: Theme.of(context).textTheme.bodyText1?.color)
         ),
       ),
     );
